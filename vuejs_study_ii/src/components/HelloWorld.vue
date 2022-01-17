@@ -1,13 +1,3 @@
-<script setup>
-import { ref } from 'vue'
-
-defineProps({
-  msg: String
-})
-
-const count = ref(0)
-</script>
-
 <template>
   <h1>{{ msg }}</h1>
 
@@ -38,3 +28,24 @@ a {
   color: #42b983;
 }
 </style>
+
+<script>
+import { ref } from 'vue'
+import { toRef } from 'vue'
+
+export default {
+  name: 'HelloWorld',
+  components: {
+    ref,
+    toRef
+  },
+  props: {
+    msg: 0
+  },
+  setup(props) {
+    const { title } = toRefs(props)
+
+    console.log(title.value)
+  }
+}
+</script>
